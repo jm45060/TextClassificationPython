@@ -23,8 +23,7 @@ import pandas as pd
 
 filepath_dict = {'data':   '/Users/Josh/Documents/data_spam_detection'}
 
-df_list = []
-for source, filepath in filepath_dict.items():
-    df = pd.read_csv(filepath, names=['v1', 'v2'], sep='\t')
-    df_list.append(df)
+df = pd.read_csv("/Users/Josh/Documents/data_spam_detection/spam.csv", names=['slabel', 'sentence'], sep='\t')
 
+df['label'] = 0
+df.loc[df['slabel']=='ham', 'label'] = 1
